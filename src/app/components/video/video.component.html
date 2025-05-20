@@ -1,7 +1,7 @@
 <div class="video-bg">
   <!-- Placeholder for video -->
   <video autoplay loop playsinline muted [volume]="0" class="vertical-video">
-    <source src="assets/video/tiktok1.mp4" type="video/mp4" />
+    <source [src]="url" type="video/mp4" />
     <!-- Add fallback formats if needed -->
     Your browser does not support the video tag.
   </video>

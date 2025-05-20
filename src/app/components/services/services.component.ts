@@ -8,5 +8,7 @@ import { Component, Input, signal } from '@angular/core';
   styleUrl: './services.component.scss',
 })
 export class ServicesComponent {
-  @Input() services = signal<{ title: string; description: string }[]>([]);
+  @Input() services = signal<
+    { title: string; description: string; url: string }[]
+  >([]);
 }
