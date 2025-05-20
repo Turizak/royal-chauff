@@ -29,6 +29,7 @@ nav {
   width: 100%;
   z-index: 1000;
   transition: 0.3s;
+  height: 55px;
 }
 
 nav.scrolled {
@@ -44,11 +45,16 @@ nav.scrolled {
 
 .logo {
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   text-decoration: none;
   display: flex;
   align-items: center;
+  &:hover {
+    cursor: pointer;
+    font-size: 20px;
+    transition: font-size 0.5s;
+  }
 }
 
 .logo i {
@@ -75,6 +81,8 @@ nav.scrolled {
 
 .nav-links a:hover {
   color: #d4af37;
+  font-size: 18px;
+  transition: font-size 0.5s;
 }
 
 .mobile-menu-btn {
@@ -90,7 +98,7 @@ nav.scrolled {
 header {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("./assets/title.jpg");
+    url("./assets/title1.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -355,13 +363,18 @@ section {
 
 .about-img {
   flex: 1;
-  min-width: 300px;
+  width: 100%;
   height: 400px;
-  background-image: url("/api/placeholder/600/400");
+  object-fit: cover;
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-img-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .about-text {
@@ -413,7 +426,7 @@ section {
   color: #fff;
   text-align: center;
   position: relative;
-  height: 500px;
+  height: 400px;
 }
 
 .video-bg {
@@ -432,7 +445,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .video-bg video {
@@ -790,7 +803,11 @@ footer {
 
   .about-img {
     margin-bottom: 30px;
-    width: 100%;
+    height: 350px;
+  }
+
+  .video-section {
+    height: 300px;
   }
 
   .about-content {
@@ -803,7 +820,17 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .logo {
+    margin-left: 10px;
+    font-size: 16px;
+    &:hover {
+      cursor: pointer;
+      font-size: 18px;
+      transition: font-size 0.5s;
+    }
+  }
+
   .nav-links {
     position: fixed;
     top: 70px;
@@ -813,9 +840,11 @@ footer {
     background-color: rgba(0, 0, 0, 0.95);
     padding: 20px 0;
     transition: 0.3s;
+    margin-top: 15px;
   }
 
   .nav-links.active {
+    margin-top: -15px;
     left: 0;
   }
 
@@ -824,8 +853,18 @@ footer {
     text-align: center;
   }
 
+  .video-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .video-content p {
+    font-size: 14px;
+  }
+
   .mobile-menu-btn {
     display: block;
+    margin-right: 10px;
   }
 
   .header-content h1 {

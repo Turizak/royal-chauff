@@ -1,11 +1,14 @@
 <nav id="mainNav" [class.scrolled]="scrolled()">
   <div class="container nav-container">
-    <a href="#" class="logo"> <i class="fas fa-car"></i> Royal Chauffeur </a>
+    <a href="#" class="logo header-icon-mini">
+      <i class="fas fa-car"></i> Royal Chauffeur
+    </a>
     <ul class="nav-links" [class.active]="mobileMenuOpen()">
       <li><a href="#" (click)="scrollTo('home', $event)">Home</a></li>
       <li><a href="#" (click)="scrollTo('services', $event)">Services</a></li>
       <li><a href="#" (click)="scrollTo('fleet', $event)">Our Fleet</a></li>
       <li><a href="#" (click)="scrollTo('about', $event)">About Us</a></li>
+      <li><a href="#" (click)="scrollTo('gallery', $event)">Gallery</a></li>
       <li>
         <a href="#" (click)="scrollTo('testimonials', $event)">Testimonials</a>
       </li>
@@ -134,7 +137,11 @@
       </p>
     </div>
     <div class="about-content">
-      <div class="about-img"></div>
+      <div class="about-img-item">
+        <div class="about-img">
+          <img src="/assets/about/about1.jpg" width="600px" alt="About Us" />
+        </div>
+      </div>
       <div class="about-text">
         <h3>The Elite Chauffeur Experience</h3>
         <p>
