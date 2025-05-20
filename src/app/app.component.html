@@ -212,15 +212,11 @@
 <section class="video-section">
   <div class="video-bg">
     <!-- Placeholder for video -->
-    <div
-      style="
-        background-image: url('/api/placeholder/1200/800');
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-      "
-    ></div>
+    <video autoplay loop playsinline muted [volume]="0" class="vertical-video">
+      <source src="assets/video/tiktok1.mp4" type="video/mp4" />
+      <!-- Add fallback formats if needed -->
+      Your browser does not support the video tag.
+    </video>
   </div>
   <div class="container">
     <div class="video-content">
@@ -476,7 +472,7 @@
     <div class="footer-bottom">
       <p>
         &copy; 2025 Royal Chauffeur Service. All Rights Reserved. | Designed by
-        <a href="#">YourName</a>
+        <a href="https://github.com/Turizak">Turizak</a>
       </p>
     </div>
   </div>
