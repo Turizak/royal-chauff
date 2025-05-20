@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="section-title">
+    <h2>Client Testimonials</h2>
+    <p>
+      Discover what our satisfied clients have to say about their experience
+      with our chauffeur services.
+    </p>
+  </div>
+  <div class="testimonial-grid">
+    @for (testimonial of testimonials(); track testimonial.name) {
+    <div class="testimonial-card">
+      <p class="testimonial-text">{{ testimonial.text }}</p>
+      <div class="testimonial-author">
+        <div
+          class="author-img"
+          style="background-image: url('/api/placeholder/60/60')"
+        ></div>
+        <div class="author-info">
+          <h4>{{ testimonial.name }}</h4>
+          <p>{{ testimonial.position }}</p>
+          <div class="rating">
+            @for (star of [1, 2, 3, 4, 5].slice(0, testimonial.rating); track
+            star) {
+            <i class="fas fa-star"></i>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

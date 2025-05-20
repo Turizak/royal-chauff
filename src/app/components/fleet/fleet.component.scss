@@ -1,0 +1,106 @@
+/* Fleet */
+.fleet {
+  background-color: #f0f2f5;
+}
+
+.fleet-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.fleet-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.fleet-slide {
+  min-width: 100%;
+  padding: 0 15px;
+}
+
+.car-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.car-img {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+.car-details {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-details h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.car-features {
+  display: flex;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.car-feature {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.car-feature i {
+  margin-right: 5px;
+  color: #d4af37;
+}
+
+.car-desc {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.car-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.slider-btn {
+  background-color: transparent;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 10px;
+}
+
+.slider-btn:hover {
+  background-color: #d4af37;
+  color: #fff;
+}

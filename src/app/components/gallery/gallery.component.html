@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="section-title">
+    <h2>Our Gallery</h2>
+    <p>
+      View our luxury vehicles, professional chauffeurs, and satisfied clients
+      through our photo gallery.
+    </p>
+  </div>
+  <div class="gallery-container">
+    <div class="gallery-grid">
+      @for (photo of galleryPhotos(); track photo.id) {
+      <div class="gallery-item" (click)="galleryLB.openLightbox(photo.id)">
+        <img class="gallery-img" [src]="photo.url" [alt]="photo.title" />
+        <div class="gallery-overlay">
+          <h3 class="gallery-title">{{ photo.title }}</h3>
+          <p class="gallery-desc">{{ photo.description }}</p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  <app-lightbox [galleryPhotos]="galleryPhotos" #galleryLB></app-lightbox>
+</div>

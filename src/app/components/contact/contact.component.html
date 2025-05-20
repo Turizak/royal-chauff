@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+    <p>
+      Reach out to us for bookings, inquiries, or any information about our
+      chauffeur services. We're here to assist you.
+    </p>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <p>
+        Have questions about our services or need to book a chauffeur? Contact
+        us using the information below or fill out the form to send us a
+        message. We'll get back to you as soon as possible.
+      </p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="contact-item-info">
+            <h4>Location</h4>
+            <p>123 Luxury Drive, Beverly Hills, CA 90210</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <div class="contact-item-info">
+            <h4>Phone</h4>
+            <p>+1 (800) 123-4567</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div class="contact-item-info">
+            <h4>Email</h4>
+            <p [innerText]="'nfo@elitechauffeur.com'"></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div class="contact-item-info">
+            <h4>Hours</h4>
+            <p>24/7 Service Available</p>
+          </div>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Send us a Message</h3>
+      <form (submit)="submitForm($event)">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Your Name"
+            [(ngModel)]="formData.name"
+            name="name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Your Email"
+            [(ngModel)]="formData.email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="tel"
+            class="form-control"
+            placeholder="Your Phone"
+            [(ngModel)]="formData.phone"
+            name="phone"
+          />
+        </div>
+        <div class="form-group">
+          <select
+            class="form-control"
+            [(ngModel)]="formData.service"
+            name="service"
+          >
+            <option value="" disabled selected>Select Service</option>
+            <option value="Airport Transfer">Airport Transfer</option>
+            <option value="Corporate Service">Corporate Service</option>
+            <option value="Wedding Transportation">
+              Wedding Transportation
+            </option>
+            <option value="Special Event">Special Event</option>
+            <option value="Hourly Hire">Hourly Hire</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            placeholder="Your Message"
+            [(ngModel)]="formData.message"
+            name="message"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>

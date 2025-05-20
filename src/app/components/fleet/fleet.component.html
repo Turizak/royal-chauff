@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="section-title">
+    <h2>Our Premium Fleet</h2>
+    <p>
+      Choose from our selection of luxury vehicles for your transportation
+      needs, each offering comfort, style, and reliability.
+    </p>
+  </div>
+  <div class="fleet-slider">
+    <div
+      class="fleet-slides"
+      [style.transform]="'translateX(-' + currentSlide() * 100 + '%)'"
+    >
+      @for (car of fleet(); track car.name) {
+      <div class="fleet-slide">
+        <div class="car-card">
+          <div
+            class="car-img"
+            style="background-image: url('/api/placeholder/600/400')"
+          ></div>
+          <div class="car-details">
+            <h3>{{ car.name }}</h3>
+            <div class="car-features">
+              <span class="car-feature"
+                ><i class="fas fa-user"></i> {{ car.capacity }} Passengers</span
+              >
+              <span class="car-feature"
+                ><i class="fas fa-suitcase"></i> {{ car.luggage }} Luggage</span
+              >
+              <span class="car-feature"
+                ><i class="fas fa-snowflake"></i> A/C</span
+              >
+            </div>
+            <p class="car-desc">{{ car.description }}</p>
+            <div class="car-price">From ${{ car.price }} per hour</div>
+            <a href="#" class="cta-btn">Book This Vehicle</a>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="slider-nav">
+      <button class="slider-btn" (click)="prevSlide()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slider-btn" (click)="nextSlide()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

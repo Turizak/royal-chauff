@@ -1,0 +1,142 @@
+/* Contact */
+.contact {
+  background-color: #fff;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  padding-right: 30px;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-info p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.contact-details {
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.contact-item i {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.contact-item-info h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.contact-item-info p {
+  color: #666;
+  margin-bottom: 0;
+}
+
+.social-links {
+  display: flex;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f2f5;
+  color: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-link:hover {
+  background-color: #d4af37;
+  color: #fff;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.form-control:focus {
+  border-color: #d4af37;
+  outline: none;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+textarea.form-control {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: #d4af37;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  background-color: #c19a23;
+}
+
+@media (max-width: 991px) {
+  .contact-info {
+    margin-bottom: 40px;
+    padding-right: 0;
+  }
+}

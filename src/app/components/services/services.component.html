@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>
+      We provide exceptional chauffeur services tailored to meet your specific
+      requirements, ensuring a luxurious and comfortable experience.
+    </p>
+  </div>
+  <div class="services-grid">
+    @for (service of services(); track service.title) {
+    <div class="service-card">
+      <div
+        class="service-img"
+        style="background-image: url('/api/placeholder/400/250')"
+      ></div>
+      <div class="service-content">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <a href="#" class="service-link"
+          >Learn More <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+    </div>
+    }
+  </div>
+</div>
