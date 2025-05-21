@@ -60,3 +60,7 @@
 .service-link:hover i {
   transform: translateX(5px);
 }
+
+.service-link:hover {
+  cursor: pointer;
+}

@@ -16,7 +16,7 @@
       <div class="service-content">
         <h3>{{ service.title }}</h3>
         <p>{{ service.description }}</p>
-        <a href="#" class="service-link"
+        <a (click)="onScrollTo('contact', $event)" class="service-link"
           >Learn More <i class="fas fa-arrow-right"></i
         ></a>
       </div>

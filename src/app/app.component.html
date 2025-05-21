@@ -1,7 +1,11 @@
 <nav id="mainNav" [class.scrolled]="scrolled()">
   <div class="container nav-container">
-    <a href="#" class="logo header-icon-mini">
-      <i class="fas fa-car"></i> Royal Chauffeur
+    <a
+      href="#"
+      (click)="scrollTo('home', $event)"
+      class="logo header-icon-mini"
+    >
+      <i class="fas fa-car-side"></i> Royal Chauffeur
     </a>
     <ul class="nav-links" [class.active]="mobileMenuOpen()">
       <li><a href="#" (click)="scrollTo('home', $event)">Home</a></li>
@@ -9,9 +13,9 @@
       <li><a href="#" (click)="scrollTo('fleet', $event)">Our Fleet</a></li>
       <li><a href="#" (click)="scrollTo('about', $event)">About Us</a></li>
       <li><a href="#" (click)="scrollTo('gallery', $event)">Gallery</a></li>
-      <li>
+      <!-- <li>
         <a href="#" (click)="scrollTo('testimonials', $event)">Testimonials</a>
-      </li>
+      </li> -->
       <li><a href="#" (click)="scrollTo('contact', $event)">Contact</a></li>
     </ul>
     <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
@@ -26,461 +30,51 @@
 
 <!-- Header -->
 <header id="home">
-  <div class="header-content">
-    <h1>Luxury Transportation Redefined</h1>
-    <p>
-      Experience the pinnacle of chauffeur services with our fleet of premium
-      vehicles and professional drivers, ensuring every journey is comfortable,
-      safe, and stylish.
-    </p>
-    <a href="#" class="cta-btn" (click)="scrollTo('contact', $event)"
-      >Book Now</a
-    >
-  </div>
+  <app-header
+    (scrollToEvent)="scrollTo($event.target, $event.event)"
+  ></app-header>
 </header>
 
 <!-- Services Section -->
 <section id="services" class="services">
-  <div class="container">
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>
-        We provide exceptional chauffeur services tailored to meet your specific
-        requirements, ensuring a luxurious and comfortable experience.
-      </p>
-    </div>
-    <div class="services-grid">
-      @for (service of services(); track service.title) {
-      <div class="service-card">
-        <div
-          class="service-img"
-          style="background-image: url('/api/placeholder/400/250')"
-        ></div>
-        <div class="service-content">
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
-          <a href="#" class="service-link"
-            >Learn More <i class="fas fa-arrow-right"></i
-          ></a>
-        </div>
-      </div>
-      }
-    </div>
-  </div>
+  <app-services
+    [services]="services"
+    (scrollToEvent)="scrollTo($event.target, $event.event)"
+  ></app-services>
 </section>
 
 <!-- Fleet Section -->
 <section id="fleet" class="fleet">
-  <div class="container">
-    <div class="section-title">
-      <h2>Our Premium Fleet</h2>
-      <p>
-        Choose from our selection of luxury vehicles for your transportation
-        needs, each offering comfort, style, and reliability.
-      </p>
-    </div>
-    <div class="fleet-slider">
-      <div
-        class="fleet-slides"
-        [style.transform]="'translateX(-' + currentSlide() * 100 + '%)'"
-      >
-        @for (car of fleet(); track car.name) {
-        <div class="fleet-slide">
-          <div class="car-card">
-            <div
-              class="car-img"
-              style="background-image: url('/api/placeholder/600/400')"
-            ></div>
-            <div class="car-details">
-              <h3>{{ car.name }}</h3>
-              <div class="car-features">
-                <span class="car-feature"
-                  ><i class="fas fa-user"></i>
-                  {{ car.capacity }} Passengers</span
-                >
-                <span class="car-feature"
-                  ><i class="fas fa-suitcase"></i>
-                  {{ car.luggage }} Luggage</span
-                >
-                <span class="car-feature"
-                  ><i class="fas fa-snowflake"></i> A/C</span
-                >
-              </div>
-              <p class="car-desc">{{ car.description }}</p>
-              <div class="car-price">From ${{ car.price }} per hour</div>
-              <a href="#" class="cta-btn">Book This Vehicle</a>
-            </div>
-          </div>
-        </div>
-        }
-      </div>
-      <div class="slider-nav">
-        <button class="slider-btn" (click)="prevSlide()">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="slider-btn" (click)="nextSlide()">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-  </div>
+  <app-fleet [fleet]="fleet"></app-fleet>
 </section>
 
 <!-- About Section -->
 <section id="about" class="about">
-  <div class="container">
-    <div class="section-title">
-      <h2>About Us</h2>
-      <p>
-        Experience excellence in transportation with our commitment to quality,
-        reliability, and customer satisfaction.
-      </p>
-    </div>
-    <div class="about-content">
-      <div class="about-img-item">
-        <div class="about-img">
-          <img src="/assets/about/about1.jpg" width="600px" alt="About Us" />
-        </div>
-      </div>
-      <div class="about-text">
-        <h3>The Elite Chauffeur Experience</h3>
-        <p>
-          Elite Chauffeur Service has been providing premium transportation
-          solutions since 2010. With years of experience in the industry, we
-          have established ourselves as a leader in luxury chauffeur services,
-          known for our professionalism, reliability, and exceptional customer
-          service.
-        </p>
-        <p>
-          Our mission is to exceed client expectations by providing safe,
-          punctual, and comfortable transportation with a touch of luxury and
-          personalized attention to detail.
-        </p>
-        <div class="about-features">
-          <div class="about-feature">
-            <i class="fas fa-check"></i>
-            <span>Fixed Pricing</span>
-          </div>
-          <div class="about-feature">
-            <i class="fas fa-check"></i>
-            <span>Flight Tracking</span>
-          </div>
-        </div>
-        <a href="#" class="cta-btn">Our Story</a>
-      </div>
-    </div>
-  </div>
+  <app-about></app-about>
 </section>
 
 <!-- Photo Gallery Section -->
 <section id="gallery" class="photo-gallery">
-  <div class="container">
-    <div class="section-title">
-      <h2>Our Gallery</h2>
-      <p>
-        View our luxury vehicles, professional chauffeurs, and satisfied clients
-        through our photo gallery.
-      </p>
-    </div>
-    <div class="gallery-container">
-      <div class="gallery-grid">
-        @for (photo of galleryPhotos(); track photo.id) {
-        <div class="gallery-item" (click)="openLightbox(photo.id)">
-          <img class="gallery-img" [src]="photo.url" [alt]="photo.title" />
-          <div class="gallery-overlay">
-            <h3 class="gallery-title">{{ photo.title }}</h3>
-            <p class="gallery-desc">{{ photo.description }}</p>
-          </div>
-        </div>
-        }
-      </div>
-    </div>
-  </div>
-
-  <!-- Lightbox -->
-  @if (currentLightboxId !== null) {
-  <div class="lightbox" (click)="closeLightbox()">
-    <div class="lightbox-content" (click)="$event.stopPropagation()">
-      @if (currentLightboxId) { @for (photo of galleryPhotos(); track photo.id)
-      { @if (photo.id === currentLightboxId) {
-      <img [src]="photo.url" [alt]="photo.title" />
-      <div class="lightbox-caption">
-        <h3>{{ photo.title }}</h3>
-        <p>{{ photo.description }}</p>
-      </div>
-      } } }
-      <button class="lightbox-close" (click)="closeLightbox()">×</button>
-    </div>
-  </div>
-  }
+  <app-gallery [galleryPhotos]="galleryPhotos"></app-gallery>
 </section>
 
 <!-- Video Section -->
 <section class="video-section">
-  <div class="video-bg">
-    <!-- Placeholder for video -->
-    <video autoplay loop playsinline muted [volume]="0" class="vertical-video">
-      <source src="assets/video/tiktok1.mp4" type="video/mp4" />
-      <!-- Add fallback formats if needed -->
-      Your browser does not support the video tag.
-    </video>
-  </div>
-  <div class="container">
-    <div class="video-content">
-      <h2>Experience Luxury Like Never Before</h2>
-      <p>
-        Watch our video to see how we deliver exceptional chauffeur services to
-        our clients, ensuring comfort, safety, and elegance in every journey.
-      </p>
-      <a href="#" class="cta-btn">Book Your Experience</a>
-    </div>
-  </div>
+  <app-video
+    [url]="videoUrl"
+    (scrollToEvent)="scrollTo($event.target, $event.event)"
+  ></app-video>
 </section>
 
 <!-- Testimonials Section -->
-<section id="testimonials" class="testimonials">
-  <div class="container">
-    <div class="section-title">
-      <h2>Client Testimonials</h2>
-      <p>
-        Discover what our satisfied clients have to say about their experience
-        with our chauffeur services.
-      </p>
-    </div>
-    <div class="testimonial-grid">
-      @for (testimonial of testimonials(); track testimonial.name) {
-      <div class="testimonial-card">
-        <p class="testimonial-text">{{ testimonial.text }}</p>
-        <div class="testimonial-author">
-          <div
-            class="author-img"
-            style="background-image: url('/api/placeholder/60/60')"
-          ></div>
-          <div class="author-info">
-            <h4>{{ testimonial.name }}</h4>
-            <p>{{ testimonial.position }}</p>
-            <div class="rating">
-              @for (star of [1, 2, 3, 4, 5].slice(0, testimonial.rating); track
-              star) {
-              <i class="fas fa-star"></i>
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      }
-    </div>
-  </div>
+<section id="testimonials" class="testimonials" [hidden]="true">
+  <app-testimonials [testimonials]="testimonials"></app-testimonials>
 </section>
 
 <!-- Contact Section -->
 <section id="contact" class="contact">
-  <div class="container">
-    <div class="section-title">
-      <h2>Contact Us</h2>
-      <p>
-        Reach out to us for bookings, inquiries, or any information about our
-        chauffeur services. We're here to assist you.
-      </p>
-    </div>
-    <div class="contact-wrapper">
-      <div class="contact-info">
-        <h3>Get in Touch</h3>
-        <p>
-          Have questions about our services or need to book a chauffeur? Contact
-          us using the information below or fill out the form to send us a
-          message. We'll get back to you as soon as possible.
-        </p>
-        <div class="contact-details">
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div class="contact-item-info">
-              <h4>Location</h4>
-              <p>123 Luxury Drive, Beverly Hills, CA 90210</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <div class="contact-item-info">
-              <h4>Phone</h4>
-              <p>+1 (800) 123-4567</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <div class="contact-item-info">
-              <h4>Email</h4>
-              <p [innerText]="'nfo@elitechauffeur.com'"></p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-clock"></i>
-            <div class="contact-item-info">
-              <h4>Hours</h4>
-              <p>24/7 Service Available</p>
-            </div>
-          </div>
-        </div>
-        <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-      <div class="contact-form">
-        <h3>Send us a Message</h3>
-        <form (submit)="submitForm($event)">
-          <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Your Name"
-              [(ngModel)]="formData.name"
-              name="name"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Your Email"
-              [(ngModel)]="formData.email"
-              name="email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="tel"
-              class="form-control"
-              placeholder="Your Phone"
-              [(ngModel)]="formData.phone"
-              name="phone"
-            />
-          </div>
-          <div class="form-group">
-            <select
-              class="form-control"
-              [(ngModel)]="formData.service"
-              name="service"
-            >
-              <option value="" disabled selected>Select Service</option>
-              <option value="Airport Transfer">Airport Transfer</option>
-              <option value="Corporate Service">Corporate Service</option>
-              <option value="Wedding Transportation">
-                Wedding Transportation
-              </option>
-              <option value="Special Event">Special Event</option>
-              <option value="Hourly Hire">Hourly Hire</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea
-              class="form-control"
-              placeholder="Your Message"
-              [(ngModel)]="formData.message"
-              name="message"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </div>
+  <app-contact></app-contact>
 </section>
 
 <!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>About Elite Chauffeur</h3>
-        <p>
-          Elite Chauffeur Service provides premium transportation solutions with
-          a focus on luxury, reliability, and exceptional customer service. Our
-          professional team ensures every journey exceeds your expectations.
-        </p>
-        <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-      <div class="footer-column"></div>
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li>
-            <a href="#" (click)="scrollTo('home', $event)"
-              ><i class="fas fa-chevron-right"></i> Home</a
-            >
-          </li>
-          <li>
-            <a href="#" (click)="scrollTo('services', $event)"
-              ><i class="fas fa-chevron-right"></i> Services</a
-            >
-          </li>
-          <li>
-            <a href="#" (click)="scrollTo('fleet', $event)"
-              ><i class="fas fa-chevron-right"></i> Our Fleet</a
-            >
-          </li>
-          <li>
-            <a href="#" (click)="scrollTo('about', $event)"
-              ><i class="fas fa-chevron-right"></i> About Us</a
-            >
-          </li>
-          <li>
-            <a href="#" (click)="scrollTo('testimonials', $event)"
-              ><i class="fas fa-chevron-right"></i> Testimonials</a
-            >
-          </li>
-          <li>
-            <a href="#" (click)="scrollTo('contact', $event)"
-              ><i class="fas fa-chevron-right"></i> Contact</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h3>Our Services</h3>
-        <ul class="footer-links">
-          <li>
-            <a href="#"
-              ><i class="fas fa-chevron-right"></i> Airport Transfers</a
-            >
-          </li>
-          <li>
-            <a href="#"
-              ><i class="fas fa-chevron-right"></i> Corporate Travel</a
-            >
-          </li>
-          <li>
-            <a href="#"
-              ><i class="fas fa-chevron-right"></i> Wedding Transportation</a
-            >
-          </li>
-          <li>
-            <a href="#"><i class="fas fa-chevron-right"></i> Special Events</a>
-          </li>
-          <li>
-            <a href="#"><i class="fas fa-chevron-right"></i> Hourly Charters</a>
-          </li>
-          <li>
-            <a href="#"><i class="fas fa-chevron-right"></i> VIP Services</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>
-        &copy; 2025 Royal Chauffeur Service. All Rights Reserved. | Designed by
-        <a href="https://github.com/Turizak">Turizak</a>
-      </p>
-    </div>
-  </div>
-</footer>
+<footer><app-footer></app-footer></footer>

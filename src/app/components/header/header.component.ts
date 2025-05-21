@@ -1,13 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-video',
+  selector: 'app-header',
   standalone: true,
   imports: [],
-  templateUrl: './video.component.html',
+  templateUrl: './header.component.html',
 })
-export class VideoComponent {
-  @Input() url = '';
+export class HeaderComponent {
   @Output() scrollToEvent = new EventEmitter<any>();
 
   onScrollTo(target: string, event: Event) {

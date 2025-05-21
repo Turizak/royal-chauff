@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input, signal, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-services',
@@ -11,4 +11,9 @@ export class ServicesComponent {
   @Input() services = signal<
     { title: string; description: string; url: string }[]
   >([]);
+  @Output() scrollToEvent = new EventEmitter<any>();
+
+  onScrollTo(target: string, event: Event) {
+    this.scrollToEvent.emit({ target, event });
+  }
 }
