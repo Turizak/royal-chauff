@@ -55,60 +55,124 @@
       <h3>Send us a Message</h3>
       <form (submit)="submitForm($event)">
         <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Your Name"
-            [(ngModel)]="formData.name"
-            name="name"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <input
-            type="email"
-            class="form-control"
-            placeholder="Your Email"
-            [(ngModel)]="formData.email"
-            name="email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <input
-            type="tel"
-            class="form-control"
-            placeholder="Your Phone"
-            [(ngModel)]="formData.phone"
-            name="phone"
-          />
-        </div>
-        <div class="form-group">
-          <select
-            class="form-control"
-            [(ngModel)]="formData.service"
-            name="service"
+          <mat-form-field
+            class="full-width"
+            [ngClass]="
+              tooltipVisible() && !formData.name ? 'get-attention' : ''
+            "
           >
-            <option value="" disabled selected>Select Service</option>
-            <option value="Prom Grad">Prom/Graduation Transportation</option>
-            <option value="Corporate Service">Corporate Service</option>
-            <option value="Wedding Transportation">
-              Wedding Transportation
-            </option>
-            <option value="Special Event">Special Event</option>
-            <option value="Hourly Hire">Hourly Hire</option>
-          </select>
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              [(ngModel)]="formData.name"
+              [required]="true"
+              type="text"
+              name="name"
+            />
+          </mat-form-field>
         </div>
         <div class="form-group">
-          <textarea
-            class="form-control"
-            placeholder="Your Message"
-            [(ngModel)]="formData.message"
-            name="message"
-            required
-          ></textarea>
+          <mat-form-field
+            class="full-width"
+            [ngClass]="
+              tooltipVisible() && !formData.email ? 'get-attention' : ''
+            "
+          >
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              [(ngModel)]="formData.email"
+              [required]="true"
+              type="email"
+              name="email"
+            />
+          </mat-form-field>
         </div>
-        <button type="submit" class="submit-btn">Send Message</button>
+        <div class="form-group">
+          <mat-form-field
+            class="full-width"
+            [ngClass]="
+              tooltipVisible() && !formData.phone ? 'get-attention' : ''
+            "
+          >
+            <mat-label>Phone</mat-label>
+            <input
+              matInput
+              [(ngModel)]="formData.phone"
+              [required]="true"
+              type="tel"
+              name="phone"
+            />
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field
+            class="full-width"
+            [ngClass]="
+              tooltipVisible() && !formData.service ? 'get-attention' : ''
+            "
+          >
+            <mat-label>Service</mat-label>
+            <select
+              matNativeControl
+              [(ngModel)]="formData.service"
+              required
+              name="service"
+            >
+              <option value="" disabled selected></option>
+              <option value="Prom Grad">Prom/Graduation Transportation</option>
+              <option value="Corporate Service">Corporate Service</option>
+              <option value="Wedding Transportation">
+                Wedding Transportation
+              </option>
+              <option value="Special Event">Special Event</option>
+              <option value="Hourly Hire">Hourly Hire</option>
+            </select>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field
+            class="full-width"
+            [ngClass]="
+              tooltipVisible() && !formData.message ? 'get-attention' : ''
+            "
+          >
+            <mat-label>Message</mat-label>
+            <textarea
+              matInput
+              [(ngModel)]="formData.message"
+              [required]="true"
+              [rows]="1"
+              name="message"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <button
+          type="submit"
+          class="submit-btn"
+          [matTooltip]="
+            !formData.email ||
+            !formData.name ||
+            !formData.phone ||
+            !formData.message ||
+            !formData.service
+              ? 'Please fill out all fields'
+              : ''
+          "
+          matTooltipPosition="below"
+          matTooltipClass="tooltip"
+          [disabled]="
+            !formData.email ||
+            !formData.name ||
+            !formData.phone ||
+            !formData.message ||
+            !formData.service ||
+            isSubmitting
+          "
+          #sendMsgBtn
+        >
+          {{ isSubmitting ? "Sending..." : "Send Message" }}
+        </button>
       </form>
     </div>
   </div>

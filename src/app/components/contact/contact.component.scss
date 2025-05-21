@@ -117,7 +117,7 @@ textarea.form-control {
 }
 
 .submit-btn {
-  background-color: #d4af37;
+  background-color: rgba(212, 175, 55, 1);
   color: #fff;
   border: none;
   padding: 12px 30px;
@@ -134,9 +134,23 @@ textarea.form-control {
   background-color: #c19a23;
 }
 
+.submit-btn:disabled {
+  background-color: rgba(212, 175, 55, 0.5);
+  cursor: not-allowed;
+}
+
 @media (max-width: 991px) {
   .contact-info {
     margin-bottom: 40px;
     padding-right: 0;
   }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.get-attention {
+  color: red;
+  font-weight: 600;
 }
