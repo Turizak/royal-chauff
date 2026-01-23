@@ -9,7 +9,7 @@
   margin-bottom: 40px;
 
   h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 600;
     margin-bottom: 15px;
     color: #333;
@@ -35,7 +35,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.3s ease;
-  height: 250px;
+  aspect-ratio: 4 / 3;
 
   &:hover {
     transform: translateY(-5px);
@@ -71,12 +71,12 @@
 
 .gallery-title {
   margin: 0 0 8px 0;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
 .gallery-desc {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
   opacity: 0.9;
 }
 
@@ -84,5 +84,17 @@
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    margin-bottom: 24px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }

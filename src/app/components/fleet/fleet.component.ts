@@ -18,6 +18,10 @@ export class FleetComponent {
     }[]
   >([]);
   currentSlide = signal(0);
+
+  private touchStartX = 0;
+  private touchEndX = 0;
+  private readonly swipeThreshold = 50;
   nextSlide() {
     this.currentSlide.update(
       (currentValue) => (currentValue + 1) % this.fleet().length
@@ -29,5 +33,25 @@ export class FleetComponent {
       (currentValue) =>
         (currentValue - 1 + this.fleet().length) % this.fleet().length
     );
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0].screenX;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].screenX;
+    this.handleSwipe();
+  }
+
+  private handleSwipe(): void {
+    const diff = this.touchStartX - this.touchEndX;
+    if (Math.abs(diff) < this.swipeThreshold) return;
+
+    if (diff > 0) {
+      this.nextSlide();
+    } else {
+      this.prevSlide();
+    }
   }
 }

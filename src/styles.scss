@@ -1,7 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 /* Global Styles */
+@use "@angular/material" as mat;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
+:root {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
 * {
   margin: 0;
   padding: 0;
@@ -67,6 +81,24 @@ nav.scrolled {
   }
 }
 
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(1px);
+  }
+  50% {
+    transform: translateX(-1px);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .logo {
   color: #fff;
   font-size: 18px;
@@ -123,7 +155,7 @@ nav.scrolled {
 header {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("./assets/title1.jpg");
+    url("./assets/title1.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -153,7 +185,7 @@ header {
 .cta-btn {
   display: inline-block;
   background-color: #d4af37;
-  color: #fff;
+  color: #000;
   padding: 12px 30px;
   border-radius: 30px;
   text-decoration: none;
@@ -284,6 +316,13 @@ section {
   }
 }
 
+@media (max-width: 768px) {
+  header {
+    height: 100svh;
+    background-attachment: scroll;
+  }
+}
+
 @media (max-width: 900px) {
   .logo {
     margin-left: 10px;
@@ -344,13 +383,4 @@ section {
   .about-features {
     grid-template-columns: 1fr;
   }
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

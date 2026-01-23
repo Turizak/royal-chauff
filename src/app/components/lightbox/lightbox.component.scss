@@ -63,7 +63,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 12px 16px;
+  min-width: 48px;
+  min-height: 48px;
   &:hover {
     color: #d4af37;
   }
@@ -80,5 +82,33 @@
 @media (max-width: 768px) {
   .lightbox-content {
     max-width: 95%;
+  }
+
+  .lightbox-row {
+    position: relative;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    position: fixed;
   }
 }

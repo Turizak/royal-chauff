@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  @Input() aboutImgUrl = '/assets/about/about1.jpg';
+  @Input() aboutImgUrl = '/assets/about/about1.webp';
 }

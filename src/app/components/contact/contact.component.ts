@@ -62,7 +62,7 @@ export class ContactComponent {
     this.isSubmitting = true;
     const serverUrl = environment.SERVER_URL || '';
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-
+    let success = false;
     this.http
       .post(`${serverUrl}/send-email`, this.formData, { headers })
       .pipe(
@@ -79,7 +79,7 @@ export class ContactComponent {
         if (response) {
           console.log('Form submitted successfully:', response);
           alert('Thank you for your message! We will get back to you soon.');
-
+          this.isSubmitting = false;
           // Reset form
           this.formData = {
             name: '',
@@ -89,7 +89,6 @@ export class ContactComponent {
             message: '',
           };
         }
-        this.isSubmitting = false;
       });
   }
 }

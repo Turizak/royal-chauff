@@ -4,7 +4,7 @@
   <div class="lightbox-content" (click)="$event.stopPropagation()">
     @for (photo of galleryPhotos(); track photo.id) { @if (photo.id ===
     currentLightboxId()) {
-    <div class="lightbox-row">
+    <div class="lightbox-row" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
       <button class="lightbox-prev" (click)="navigateToPrevious()">
         <i class="fa-solid fa-chevron-left"></i>
       </button>

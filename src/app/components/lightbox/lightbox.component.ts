@@ -14,6 +14,10 @@ export class LightboxComponent {
     { id: number; url: string; title: string; description: string }[]
   >([]);
 
+  private touchStartX = 0;
+  private touchEndX = 0;
+  private readonly swipeThreshold = 50;
+
   constructor() {
     // Set up keyboard event listener for lightbox navigation
     effect(() => {
@@ -80,6 +84,26 @@ export class LightboxComponent {
       this.currentLightboxId.set(photos[currentIndex + 1].id);
     } else {
       this.currentLightboxId.set(photos[0].id);
+    }
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0].screenX;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].screenX;
+    this.handleSwipe();
+  }
+
+  private handleSwipe(): void {
+    const diff = this.touchStartX - this.touchEndX;
+    if (Math.abs(diff) < this.swipeThreshold) return;
+
+    if (diff > 0) {
+      this.navigateToNext();
+    } else {
+      this.navigateToPrevious();
     }
   }
 }

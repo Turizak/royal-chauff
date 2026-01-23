@@ -10,6 +10,8 @@
     <div
       class="fleet-slides"
       [style.transform]="'translateX(-' + currentSlide() * 100 + '%)'"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
     >
       @for (car of fleet(); track car.name) {
       <div class="fleet-slide">
@@ -40,10 +42,18 @@
       }
     </div>
     <div class="slider-nav">
-      <button class="slider-btn" (click)="prevSlide()">
+      <button
+        class="slider-btn"
+        (click)="prevSlide()"
+        aria-label="Previous Fleet Slide"
+      >
         <i class="fas fa-chevron-left"></i>
       </button>
-      <button class="slider-btn" (click)="nextSlide()">
+      <button
+        class="slider-btn"
+        (click)="nextSlide()"
+        aria-label="Next Fleet Slide"
+      >
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>
