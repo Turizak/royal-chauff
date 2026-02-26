@@ -11,10 +11,10 @@ export class FleetComponent {
   @Input() fleet = signal<
     {
       name: string;
+      image: string;
       description: string;
       capacity: number;
-      luggage: number;
-      price: number;
+      features: string[];
     }[]
   >([]);
   currentSlide = signal(0);

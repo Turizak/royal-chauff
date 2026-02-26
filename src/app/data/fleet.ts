@@ -1,34 +1,50 @@
 export const fleet = [
   {
-    name: 'Mercedes-Benz S-Class',
-    capacity: 3,
-    luggage: 2,
-    price: 120,
+    name: 'Cadillac Escalade',
+    image: 'assets/fleet/escalade.webp',
+    capacity: 5,
+    features: ['A/C', 'Heated Seats', 'Sunroof', 'Bulletproof'],
     description:
-      'The Mercedes-Benz S-Class represents the pinnacle of luxury sedans, offering exceptional comfort and state-of-the-art technology for discerning clients.',
+      'The Cadillac Escalade offers spacious luxury with imposing presence. Perfect for groups requiring maximum comfort and security.',
   },
   {
     name: 'BMW 7 Series',
+    image: 'assets/fleet/bmw.webp',
     capacity: 3,
-    luggage: 2,
-    price: 110,
+    features: ['A/C', 'Heated Seats', 'Sunroof'],
     description:
       'The BMW 7 Series combines athletic performance with sophisticated luxury, providing a dynamic and comfortable ride for business or leisure.',
   },
   {
-    name: 'Cadillac Escalade',
-    capacity: 6,
-    luggage: 4,
-    price: 150,
+    name: 'Tesla Cybertruck',
+    image: 'assets/fleet/cybertruck.webp',
+    capacity: 3,
+    features: ['A/C', 'Heated Seats', 'Sunroof'],
     description:
-      'The Cadillac Escalade offers spacious luxury with imposing presence. Perfect for groups requiring maximum comfort and luggage capacity.',
+      'The Tesla Cybertruck delivers bold, futuristic design with cutting-edge technology and all-electric power for a truly unique ride.',
   },
   {
-    name: 'Mercedes-Benz V-Class',
-    capacity: 7,
-    luggage: 5,
-    price: 140,
+    name: 'Mercedes-Benz G-Wagon',
+    image: 'assets/fleet/gwagon.webp',
+    capacity: 3,
+    features: ['A/C', 'Heated Seats', 'Sunroof'],
     description:
-      'The Mercedes-Benz V-Class provides first-class comfort for larger groups, with versatile seating and ample space for passengers and luggage.',
+      'The Mercedes-Benz G-Wagon is an icon of rugged luxury, combining commanding road presence with refined interior comfort.',
+  },
+  {
+    name: 'Dodge Charger Hellcat',
+    image: 'assets/fleet/hellcat.webp',
+    capacity: 3,
+    features: ['A/C', 'Heated Seats', 'Sunroof'],
+    description:
+      'The Dodge Charger Hellcat brings raw, supercharged power wrapped in a sleek sedan body for an unforgettable high-performance experience.',
+  },
+  {
+    name: 'Range Rover',
+    image: 'assets/fleet/rangerover.webp',
+    capacity: 3,
+    features: ['A/C', 'Heated Seats', 'Sunroof'],
+    description:
+      'The Range Rover sets the standard for refined off-road luxury, delivering effortless elegance and supreme comfort on any terrain.',
   },
 ];

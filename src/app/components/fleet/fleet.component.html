@@ -18,7 +18,7 @@
         <div class="car-card">
           <div
             class="car-img"
-            style="background-image: url('/api/placeholder/600/400')"
+            [style.background-image]="'url(' + car.image + ')'"
           ></div>
           <div class="car-details">
             <h3>{{ car.name }}</h3>
@@ -26,15 +26,13 @@
               <span class="car-feature"
                 ><i class="fas fa-user"></i> {{ car.capacity }} Passengers</span
               >
+              @for (feature of car.features; track feature) {
               <span class="car-feature"
-                ><i class="fas fa-suitcase"></i> {{ car.luggage }} Luggage</span
+                ><i class="fas fa-check"></i> {{ feature }}</span
               >
-              <span class="car-feature"
-                ><i class="fas fa-snowflake"></i> A/C</span
-              >
+              }
             </div>
             <p class="car-desc">{{ car.description }}</p>
-            <div class="car-price">From ${{ car.price }} per hour</div>
             <a href="#" class="cta-btn">Book This Vehicle</a>
           </div>
         </div>
