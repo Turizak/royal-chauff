@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-fleet',
@@ -17,7 +17,12 @@ export class FleetComponent {
       features: string[];
     }[]
   >([]);
+  @Output() scrollToEvent = new EventEmitter<any>();
   currentSlide = signal(0);
+
+  onScrollTo(target: string, event: Event) {
+    this.scrollToEvent.emit({ target, event });
+  }
 
   private touchStartX = 0;
   private touchEndX = 0;

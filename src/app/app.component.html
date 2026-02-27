@@ -45,7 +45,7 @@
 
 <!-- Fleet Section -->
 <section id="fleet" class="fleet">
-  <app-fleet [fleet]="fleet"></app-fleet>
+  <app-fleet [fleet]="fleet" (scrollToEvent)="scrollTo($event.target, $event.event)"></app-fleet>
 </section>
 
 <!-- About Section -->
