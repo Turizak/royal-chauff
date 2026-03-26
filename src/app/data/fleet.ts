@@ -47,4 +47,12 @@ export const fleet = [
     description:
       'The Range Rover sets the standard for refined off-road luxury, delivering effortless elegance and supreme comfort on any terrain.',
   },
+  {
+    name: 'Porsche Taycan',
+    image: 'assets/fleet/porsche.webp',
+    capacity: 3,
+    features: ['A/C', 'Heated Seats', 'All-Electric'],
+    description:
+      'The Porsche Taycan delivers thrilling electric performance with unmistakable Porsche styling, offering a seamless blend of speed, luxury, and zero emissions.',
+  },
 ];
